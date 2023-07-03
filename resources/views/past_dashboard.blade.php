@@ -5,8 +5,7 @@
             <div class="p-6 text-gray-900">
                 @if(isset($posts))
                     @foreach($posts as $post)
-                        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-4 mb-4">
-                            <a href="{{route('post', $post->id)}}">click</a>
+                        <div onclick="location.href='{{route('post', $post->id)}}';" class="cursor-pointer bg-white overflow-hidden border rounded-lg p-4 mb-4">
                             <a href="{{$post->url}}" target="_blank" class="font-bold">{{$post->title}}</a>
                             <div class="flex">
                                 <h1 class="p-2 m-2">By {{$post->username}}</h1>

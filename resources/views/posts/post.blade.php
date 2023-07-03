@@ -4,7 +4,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="p-6 text-gray-900">
                 @if(isset($post))
-                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-4 mb-4">
+                    <div class="bg-white overflow-hidden border rounded-lg p-4 mb-4 ">
                         <a href="{{$post->url}}" target="_blank" class="font-bold">{{$post->title}}</a>
                         <h1>{{$post->description}}</h1>
                         <div class="flex">
