@@ -53,9 +53,9 @@ class PostController extends Controller
     public function store(StorePostRequest $request){
         Auth::user()->posts()->create(
             [
-                'title'=>clean($request->title),
-                'description'=>clean($request->description),
-                'url'=>clean($request->url),
+                'title'=>$request->title,
+                'description'=>$request->description,
+                'url'=>$request->url,
                 'likes'=>0,
             ],
         );
