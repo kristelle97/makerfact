@@ -11,6 +11,12 @@
         </div>
     @endif
 
+    @if(session()->has('error'))
+        <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
+            <p>{{ session()->get('error') }}</p>
+        </div>
+    @endif
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <form method="POST" action="{{ route('post.store') }}">

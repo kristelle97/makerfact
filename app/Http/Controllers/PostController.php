@@ -7,6 +7,8 @@ use App\Http\Requests\StorePostRequest;
 use App\Models\Like;
 use App\Models\Post;
 use App\Models\User;
+use App\Policies\PostPolicy;
+use App\Rules\SafeUrl;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -51,9 +53,9 @@ class PostController extends Controller
     public function store(StorePostRequest $request){
         Auth::user()->posts()->create(
             [
-                'title'=>$request->title,
-                'description'=>$request->description,
-                'url'=>$request->url,
+                'title'=>clean($request->title),
+                'description'=>clean($request->description),
+                'url'=>clean($request->url),
                 'likes'=>0,
             ],
         );

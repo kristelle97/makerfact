@@ -27,4 +27,23 @@ class StorePostRequest extends FormRequest
             'description' => 'required',
         ];
     }
+
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+            $url = $this->input('url');
+
+            if (!$this->isValidUrl($url)) {
+                $validator->errors()->add('url', 'The URL must be a valid and safe URL.');
+            }
+        });
+    }
+
+    private function isValidUrl($url)
+    {
+        $allowedSchemes = ['http', 'https'];
+        $parsedUrl = parse_url($url);
+
+        return isset($parsedUrl['scheme']) && in_array($parsedUrl['scheme'], $allowedSchemes);
+    }
 }

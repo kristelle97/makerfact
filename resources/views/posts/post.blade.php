@@ -5,8 +5,8 @@
             <div class="p-6 text-gray-900">
                 @if(isset($post))
                     <div class="bg-white overflow-hidden border rounded-lg p-4 mb-4 ">
-                        <a href="{{$post->url}}" target="_blank" class="font-bold">{{$post->title}}</a>
-                        <h1>{{$post->description}}</h1>
+                        <a href="{{$post->url}}" target="_blank" class="font-bold">{!!htmlspecialchars($post->title)!!}</a>
+                        <h1>{!!htmlspecialchars($post->description)!!}</h1>
                         <div class="flex">
                             <h1 class="p-2 m-2">By {{$post->username}}</h1>
                             <form method="POST" action="{{ route('post.like',$post->id) }}">
