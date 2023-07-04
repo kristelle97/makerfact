@@ -27,6 +27,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
     Route::post('/post/create', [PostController::class, 'store'])->name('post.store');
     Route::post('/posts/{post_id}/like', [PostController::class, 'like'])->name('post.like');
-});
+})->middleware(XSSProtection::class);
 
 require __DIR__.'/auth.php';
