@@ -36,6 +36,10 @@ class StorePostRequest extends FormRequest
             if (!$this->isValidUrl($url)) {
                 $validator->errors()->add('url', 'The URL must be a valid and safe URL.');
             }
+
+            if ($this->isNotRecursiveURL($url)) {
+                $validator->errors()->add('url', 'The URL cannot be from MakerFact.');
+            }
         });
     }
 
@@ -45,5 +49,12 @@ class StorePostRequest extends FormRequest
         $parsedUrl = parse_url($url);
 
         return isset($parsedUrl['scheme']) && in_array($parsedUrl['scheme'], $allowedSchemes);
+    }
+
+    private function isNotRecursiveURL($url){
+        $domain="makerfact.com";
+        $parsedUrl = parse_url($url);
+
+        return isset($parsedUrl['host']) && strpos($parsedUrl['host'], $domain);
     }
 }
