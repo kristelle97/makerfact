@@ -9,7 +9,7 @@
                             <a href="{{$post->url}}" target="_blank" class="font-bold">{{$post->title}}</a>
                             <div class="flex">
                                 <h1 class="p-2 m-2">By {{$post->username}}</h1>
-                                <form method="POST" action="{{ route('pogitst.like',$post->id) }}">
+                                <form method="POST" action="{{ route('post.like',$post->id) }}">
                                     @csrf
                                     <input type="hidden" name="post_id" value="{{ $post->id }}">
                                     <button class="p-2 m-2 border">Like</button>
