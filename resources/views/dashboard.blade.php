@@ -8,27 +8,27 @@
                         <div class="bg-white overflow-hidden border rounded-lg p-4 mb-4">
                             <a href="{{$post->url}}" target="_blank" class="font-bold">{{$post->title}}</a>
                             <div class="flex justify-between">
-                                <div>
-                                    <h1 class="p-2 m-2">By {{$post->username}}</h1>
+                                <div class="flex p-2">
+                                    <h1 class="m-2">By {{$post->username}}</h1>
                                     <form method="POST" action="{{ route('post.like',$post->id) }}">
                                         @csrf
                                         <input type="hidden" name="post_id" value="{{ $post->id }}">
                                         @auth()
                                             @if(count(\Illuminate\Support\Facades\Auth::user()->likes?->where('post_id',$post->id))>=1)
-                                                <button class="p-2 m-2"><i class="fas fa-heart" style="color:#8c52ff;"></i></button>
+                                                <button class="m-2"><i class="fas fa-heart" style="color:#8c52ff;"></i></button>
                                             @else
-                                                <button class="p-2 m-2"><i class="far fa-heart"></i></button>
+                                                <button class="m-2"><i class="far fa-heart"></i></button>
                                             @endif
                                         @endauth
 
                                         @guest()
-                                            <button class="p-2 m-2"><i class="far fa-heart"></i></button>
+                                            <button class="m-2"><i class="far fa-heart"></i></button>
                                         @endguest
                                     </form>
-                                    <button class="p-2 m-2"><i class="far fa-comment"></i></button>
+                                    <button class="m-2"><i class="far fa-comment"></i></button>
                                 </div>
 
-                                <div class="flex justify-end">
+                                <div class="flex justify-end p-2 m-2">
                                     <h1>{{$post->likes}} like{{$post->likes != 1 ? 's' : ''}}</h1>
                                 </div>
                             </div>
