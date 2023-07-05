@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, 'index'])->name('dashboard');
 Route::get('/past/posts', [PostController::class, 'all'])->name('past.dashboard');
-Route::get('/posts/{post_id}', [PostController::class, 'showPost'])->name('post');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

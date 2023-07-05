@@ -37,15 +37,6 @@ class PostController extends Controller
         ]);
     }
 
-    public function showPost(int $postID){
-        $post = Post::findOrFail($postID);
-        $post->username = User::find($post->user_id)->name;
-
-        return view('posts.post')->with([
-            'post' => $post,
-        ]);
-    }
-
     public function create(){
         return view('posts/new_post_form');
     }
