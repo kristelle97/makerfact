@@ -17,7 +17,7 @@
                             <button class="p-2 m-2 border">Comment</button>
                         </div>
                         <div class="flex justify-end">
-                            <h1>{{$post->likes}} likes</h1>
+                            <h1>{{$post->likes}} like{{$post->likes != 1 ? 's' : ''}}</h1>
                         </div>
                     </div>
                 @endif
