@@ -25,7 +25,6 @@
                                             <button class="m-2"><i class="far fa-heart"></i></button>
                                         @endguest
                                     </form>
-                                    <button class="m-2"><i class="far fa-comment"></i></button>
                                 </div>
 
                                 <div class="flex justify-end p-2 m-2">
