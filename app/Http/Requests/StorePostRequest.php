@@ -55,6 +55,6 @@ class StorePostRequest extends FormRequest
         $domain="makerfact.com";
         $parsedUrl = parse_url($url);
 
-        return isset($parsedUrl['host']) && strpos($parsedUrl['host'], $domain);
+        return isset($parsedUrl['host']) && str_contains($parsedUrl['host'], $domain);
     }
 }
